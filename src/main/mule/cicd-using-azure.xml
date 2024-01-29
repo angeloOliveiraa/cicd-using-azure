@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="fff68a47-4782-4108-8f22-cfea4927ba26" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="cicd-using-azureFlow" doc:id="a691bada-249a-41e7-bf78-99efb488b072" >
+		<http:listener doc:name="Listener" doc:id="c6b7eae5-d7dc-49f8-811d-da9ffca9fe48" path="/azure" config-ref="HTTP_Listener_config"/>
+		<set-payload value='#["mudou"]' doc:name="Set Payload" doc:id="d00c6716-9c78-40ad-936e-01fc6fda9ca3" />
+	</flow>
+</mule>
