@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>85dc4ee5-b6a0-49c3-9be9-6dfe57a8c42a</groupId>
@@ -9,7 +11,7 @@
 
 	<name>cicd-using-azure</name>
 
-	<description/>
+	<description />
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -17,7 +19,7 @@
 		<app.runtime>4.4.0-20230320</app.runtime>
 		<mule.maven.plugin.version>3.8.2</mule.maven.plugin.version>
 		<munit.version>2.3.14</munit.version>
-		<tags/>
+		<tags />
 		<categories>[]</categories>
 		<fields>[]</fields>
 	</properties>
@@ -34,6 +36,19 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+				<configuration>
+					<cloudhub2Deployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<provider>MC</provider>
+						<environment>Sandbox</environment>
+						<target>Cloudhub-US-East-2</target>
+						<muleVersion>4.5.3</muleVersion>
+						<applicationName>cicd-using-azure</applicationName>
+						<replicas>1</replicas>
+						<vCores>0.1</vCores>
+
+					</cloudhub2Deployment>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>com.mulesoft.munit.tools</groupId>
@@ -56,16 +71,6 @@
 							<format>html</format>
 						</formats>
 					</coverage>
-					<cloudHubDeployment>
-						<uri>https://anypoint.mulesoft.com</uri>
-						<muleVersion>4.5.3</muleVersion>
-						<username>Angelo_araujo</username>
-						<password>GlobalMule69</password>
-						<enviroment>Sandbox</enviroment>
-						<applicationName>cicd-using-azure</applicationName>
-						<workerType>Micro</workerType>
-						<target>Cloudhub-US-East-2</target>
-					</cloudHubDeployment>
 				</configuration>
 			</plugin>
 		</plugins>
